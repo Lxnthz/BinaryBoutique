@@ -56,7 +56,7 @@ form input[type="password"],form textarea {
 }
 form input[type="submit"] {
     display: block;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     margin: 10px 0;
     border: none;
