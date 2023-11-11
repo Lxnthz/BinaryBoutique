@@ -17,7 +17,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #7c818a;
+    background-color: #373c46;
 }
 /* FORMFIELD */
 .form-field {
@@ -32,7 +32,7 @@ main {
     text-align: left;
     font-weight: bold;
     font-size: 25px;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 /* FORM */
 form {
@@ -50,25 +50,25 @@ form input[type="password"],form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 50px;
+    border-radius: 12px;
     font-size: 14px;
     background-color: #fff;
 }
 form input[type="submit"] {
     display: block;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     margin: 10px 0;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     font-size: 16px;
     color: #fff;
-    background-color: #00ADB5;
+    background-color: #95cdcf;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 form input[type="submit"]:hover {
-    background-color: #009ea7;
+    background-color: #01c5d0;
     transform: scale(1.1);
 }
 .btn-submit {
@@ -83,7 +83,7 @@ form input[type="submit"]:hover {
     font-weight: bold;
 }
 .form-field p a:hover {
-    color: #6bf8ff;
+    color: #25d5de;
 }
 .form-field p a:visited, .form-field p a:active {
     text-decoration: none;
