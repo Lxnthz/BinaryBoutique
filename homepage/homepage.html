@@ -3,9 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home || Binary Boutique</title>
+
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/assets/logo/small-logo-white.webp" alt="Boutique">
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="quote-container" onmouseover="showCreator()" onmouseout="hideCreator()">
+            <p id="quote-text">Loading...</p>
+            <p id="quote-creator">- John Doe -</p>
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="homepage-header">
+            <div class="header-left-side">
+                <div class="header-img"><img src="/assets/logo/icon-white.webp" alt="#"></div>
+                <div class="header-text">
+                    <h1>Welcome, User!</h1>
+                    <p>Continue where left off or start a new journey!</p>
+                </div>
+            </div>
+
+            <div class="header-btn">
+                <button>See your journey on Binary Boutique</button>
+            </div>
+        </div>
+
+        <div class="language-container">
+            <div class="language-header">
+                <h2>Explore Our Online Courses Catalog</h2>
+                <p>Become fluent in your chosen programming languages by completing these tracks created by our <a href="#" style="color: rgb(78, 204, 99);">awesome team of contributors</a></p>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search your desired language">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="language">
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/html-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>HTML</h3>
+                            <span>HTML Essentials: Launch Your Web Development Odyssey</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/css-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>CSS</h3>
+                            <span>Style Mastery Unleashed: Dive into CSS Today</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/javascript-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>Javascript</h3>
+                            <span>Unlock Interactivity: Begin Your JavaScript Journey Now</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/php-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>PHP</h3>
+                            <span>PHP Powerhouse: Fueling Dynamic Web Development</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/cpp-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>C++</h3>
+                            <span>Crafting the Future: Master C++ Programming Today</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/python-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>Python</h3>
+                            <span>Pythonic Prowess: Elevate Your Coding with Python</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/ruby-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>Ruby</h3>
+                            <span>Ruby Revolution: Transform Ideas into Code with Ruby</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-card-left">
+                        <div class="lang-card-logo">
+                            <img src="/assets/program-lang/java-logo.webp" alt="">
+                        </div>
+                        <div class="lang-card-info">
+                            <h3>Java</h3>
+                            <span>Java Juggernaut: Ignite Your Programming Potential with Java</span>
+                            <h4>3 Courses Available</h4>
+                        </div>
+                    </div>
+
+                    <div class="lang-card-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="homepage.js"></script>
 </body>
 </html>
