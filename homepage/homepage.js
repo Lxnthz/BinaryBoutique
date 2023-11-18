@@ -1,3 +1,4 @@
+// QUOTES MACHINE -------------------------------------------------------------
 const quotes = [
     { 
         text: "Coding like poetry should be short and concise.", 
@@ -24,7 +25,6 @@ const quotes = [
         creator: "Robert C. Martin" 
     },
 ];
-
 function generateQuote() {
     const quoteText = document.getElementById('quote-text');
     const quoteCreator = document.getElementById('quote-creator');
@@ -40,19 +40,15 @@ function generateQuote() {
         quoteCreator.style.opacity = 1;
     }, 500);
 }
-
 function showCreator() {
     const quoteCreator = document.getElementById('quote-creator');
     quoteCreator.style.opacity = 1;
 }
-
 function hideCreator() {
     const quoteCreator = document.getElementById('quote-creator');
     quoteCreator.style.opacity = 0;
 }
-
-
 generateQuote();
-
-
 setInterval(generateQuote, 10000);
+
+// FAQ DROPDOWN -------------------------------------------------------------
