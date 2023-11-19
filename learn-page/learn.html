@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="#">About</a></li>
                     <li><a href="/learn-page/learn.html">Learn</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="/user-page/user.html">Settings</a></li>
                 </ul>
             </div>
         </nav>
@@ -36,13 +36,13 @@
             </div>
             
             <div class="search-bar">
-                <input type="text" placeholder="Search your desired language">
+                <input type="text" id="search-bar" placeholder="Search your desired language" onkeyup="search()">
                 <button type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
 
-            <div class="language">
+            <div class="language" id="language">
                 <div class="lang-card">
                     <div class="lang-card-left">
                         <div class="lang-card-logo">
@@ -214,7 +214,23 @@
         </div>
     </main>
     <footer>
+        <section class="bg-transition">
+            <img src="/assets/additional-svgs/bg-footer.svg" alt="">
+        </section>
+        <div class="foot-container">
+            <section class="foot-left-container">
+                <img src="/assets/logo/main-logo-black.webp" alt="">
+                <div class="foot-left-copyright">
+                    <h2>Copyright &copy; 2023</h2>
+                </div>
+            </section>
 
+            <section class="foot-right-container">
+                
+            </section>
+        </div>
     </footer>
+
+    <script src="learn.js"></script>
 </body>
 </html>

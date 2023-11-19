@@ -1,0 +1,199 @@
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    color: black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: black;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    color: black;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: black;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* HEADER ---------------------------------------------------------------------------------*/
+header {
+    background-color: #a4def6;
+}
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+.profile-header h1, .track-record p {
+    color: black;
+}
+.image-header {
+    background-color: #053B50;
+}
+.image-header img {
+    width: 100%;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #053B50;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+}    
+.profile-segment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 10px;
+}
+.segment-header {
+    display: flex;
+    justify-content: space-between;
+}
+.segment-header button {
+    padding: 5px;
+    width: 50px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .5s ease-in-out;
+}
+.segment-header button:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    color: white;
+    cursor: pointer;
+}
+.display-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    border: none;
+    background: #095979;
+    border-bottom: 1px solid;
+    font-size: 14px;
+    padding: 5px;
+    padding-bottom: 5px;
+}
+#passwordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input[type="submit"] {
+    background-color: rgb(78, 204, 99);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: .5s ease-in-out;
+}
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    color: white;
+    cursor: pointer;
+}
+/* DELETE CONTAINER --------------------------------------------------- */
+.delete-container {
+    display: flex;
+    flex-direction: column;
+}
+.delete-container hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #5a1111, white, #5a1111) .5;
+}
+.delete-segment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 10px;
+    background-color: #5a1111;
+}
+.delete-disclaimer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.disclaimer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: justify;
+}
+#deleteAccountForm .btn-submit input {
+    background-color: yellow;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: .5s ease-in-out;
+}
+#deleteAccountForm .btn-submit input:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid yellow;
+    color: white;
+    cursor: pointer;
+}
+#deleteAccountForm input {
+    background-color: transparent;
+}
