@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="user-setting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/homepage/homepage.html"><img src="/assets/logo/small-logo-white.webp" alt="Boutique"></a>
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="/learn-page/learn.html">Learn</a></li>
+                    <li><a href="/user-page/user.html">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="profile-container">
+                <h1>Profile Settings</h1>
+                <div class="profile-segment">
+                    <div class="segment-header">
+                        <h3>Account Information</h3>   
+                        <button>Edit</button> 
+                    </div>
+                    <hr>
+                    <div class="display-information">
+                        <label for="fname">Full Name:</label>
+                        <input type="text" id="fname" name="fname" value="John Doe">
+        
+                        <label for="uname">Username:</label>
+                        <input type="text" id="uname" name="uname" value="johndoe123">
+                    
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="john.doe@example.com">    
+    
+                    </div>
+                </div>    
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-segment">
+                    <div class="segment-header">
+                        <h3>Password</h3>   
+                    </div>
+                    <hr>
+                    <form id="passwordForm">
+                        <label for="current-password">Current Password:</label>
+                        <input type="password" id="current-password" name="current-password" required>
+                
+                        <label for="new-password">New Password:</label>
+                        <input type="password" id="new-password" name="new-password" required>
+                        <span id="passwordError" class="error-message"></span>
+                
+                        <label for="confirm-password">Confirm New Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <span id="confirmPasswordError" class="error-message"></span>
+                
+                        <div class="btn-submit">
+                            <input type="submit" value="Change Password">
+                        </div>
+                    </form>
+                </div>    
+            </div>
+
+            <div class="delete-container">
+                <div class="delete-segment">
+                    <div class="delete-header">
+                        <h3>DELETE ACCOUNT</h3>    
+                    </div>
+                    <hr>
+                    <div class="delete-disclaimer">
+                        <p>Before proceeding, please read and understand the following disclaimer:</p>
+                        <br>
+                        <div class="disclaimer">
+                            <p>
+                                <strong>Disclaimer: <br></strong> Deleting your account is an irreversible action. 
+                                By confirming the deletion of your account, all your data, including profile information, 
+                                settings, and associated content, will be permanently removed from our system.
+                            </p>
+                            <br>
+                            <p>
+                                Please ensure that you have backed up any important data and consider the implications 
+                                of losing access to your account before proceeding. Once the account is deleted, it 
+                                cannot be recovered, and you will need to create a new account if you wish to use our services again.
+                            </p>
+                        </div>
+                        <br>
+                        <form id="deleteAccountForm" onsubmit="deleteAccount(event)">
+                            <label for="confirmation">Type 'DELETE' to confirm:</label>
+                            <input type="text" id="confirmation" name="confirmation" required>
+                    
+                            <div class="btn-submit">
+                                <input type="submit" value="Delete Account">
+                            </div>
+                        </form>
+                    </div>
+                </div>    
+            </div>
+        </section>
+    </main>
+
+    <script src="user-setting.js"></script>
+</body>
+</html>

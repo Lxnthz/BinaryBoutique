@@ -16,6 +16,7 @@ hr {
 }
 /* NAVIGATION BAR ---------------------------------------------------------------------------------*/
 nav {
+    background-color: #053B50;
     display: flex;
     flex-direction: row;
     padding-left: 350px;
@@ -23,25 +24,23 @@ nav {
     padding-top: 8px;
     padding-bottom: 8px;
     justify-content: space-between;
-    color: black;
+    border-bottom: 1px solid black;
 }
 nav ul {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    color: black;
 }
 nav ul li {
     transition: 0.3s ease-in-out;
     font-weight: 500;
-    color: black;
 }
 nav ul li:hover {
     transform: scale(1.2);
     
 }
 nav ul li a {
-    color: black;
+    color: white;
 }
 nav img {
     width: 120px;
@@ -71,120 +70,27 @@ header {
 main {
     padding-left: 350px;
     padding-right: 350px;
+    background-color: #053B50;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #053B50;
-    min-height: 80vh;
 }
-.content-container {
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.content {
-    display: flex;
-    align-items: center;
+    width: 100%;
     gap: 10px;
-    margin-bottom: 10px;
-    background-color: #23586d;
-    border-radius: 5px;
-    padding: 10px;
 }
-.lang-container img {
-    width: 80px;
-}
-/* SEARCH CONTAINER ---------------------------------------------------------------- */
-.search-bar {
-    width: 100%;
-    position: relative;
-    display: flex;
-    margin: 10px;
-    color: black;
-}
-.search-bar input[type="text"] {
-    width: 100%;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    background: #f6f6f6;
-    box-sizing: border-box;
-    outline: none;
-    transition: all 0.5s ease-in-out;
-    color: black;
-}
-.search-bar input[type="text"]:focus {
-    border-color: #428bca;
-    box-shadow: 0 0 10px #428bca;
-}
-.search-bar button {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    height: 40px;
-    width: 40px;
-    margin-top: -20px;
-    background: #f6f6f6;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    color: black;
-}
-.search-bar button:hover {
-    background: #428bca;
-}
-.search-bar button i {
-    font-size: 18px;
-    color: black;
-}
-/* LANGUANGE CONTAINER ---------------------------------------------------------------- */
-.lang-container {
+
+.profile-container {
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    padding: 20px;
-    align-items: left;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    width: 100%;
-    max-height: 500px;
-    overflow-y: scroll;
-    border: 1px solid white;
-    margin-bottom: 20px;
-}
-.btn-desc button {
-    align-items: center;
-    background-color: rgb(78, 204, 99);
-    border: none;
-    border-radius: 10px;
-    padding: 8px;
-    font-weight: 500;
-    transition: .1s ease-in-out;
-    color: #053B50;
-    width: 100px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-.btn-desc {
-    display: flex;
-    gap: 15px;
-}
-#btn-delete {
-    background-color: rgb(190, 22, 22);
-    color: white;
-}
-#btn-delete:hover {
-    background-color: transparent;
-    border: 2px solid rgb(190, 22, 22);
-}
-.btn-desc button:hover {
-    transform: scale(1.1);
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 2px;
-    background-color: transparent;
-    border: 2px solid rgb(78, 204, 99);
-    color: white;   
-    cursor: pointer;
-}
-/* ACCOUNT INFORMATION ---------------------------------------------------------- */
+}    
 .profile-segment {
     display: flex;
     flex-direction: column;
@@ -246,4 +152,53 @@ input[type="submit"]:hover {
     border: 1px solid rgb(78, 204, 99);
     color: white;
     cursor: pointer;
+}
+/* DELETE CONTAINER --------------------------------------------------- */
+.delete-container {
+    display: flex;
+    flex-direction: column;
+}
+.delete-container hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #5a1111, white, #5a1111) .5;
+}
+.delete-segment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 10px;
+    background-color: #5a1111;
+}
+.delete-disclaimer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.disclaimer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: justify;
+}
+#deleteAccountForm .btn-submit input {
+    background-color: yellow;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: .5s ease-in-out;
+}
+#deleteAccountForm .btn-submit input:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid yellow;
+    color: white;
+    cursor: pointer;
+}
+#deleteAccountForm input {
+    background-color: transparent;
 }

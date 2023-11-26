@@ -124,8 +124,9 @@ main {
     border: 2px solid #428bca;
     border-radius: 5px;
     padding: 20px;
-    max-width: min-content;
     max-height: min-content;
+    justify-content: center;    
+    align-items: center;
 }
 .quick-menu {
     display: flex;
@@ -135,6 +136,7 @@ main {
     width: 100%;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .menu {
     display: flex;

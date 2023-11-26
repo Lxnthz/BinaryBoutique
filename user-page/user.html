@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="#">About</a></li>
                     <li><a href="/learn-page/learn.html">Learn</a></li>
-                    <li><a href="/user-page/user.html">Settings</a></li>
+                    <li><a href="/user-page/user.html">Profile</a></li>
                 </ul>
             </div>
         </nav>
@@ -41,13 +41,69 @@
     </header>
 
     <main>
-        <section class="container">
-            <div class="profile-container">
-                <h1>Profile Settings</h1>
+        <div class="content-container">
+            <h2>Your Track</h2>
+
+            <div class="search-bar">
+                <input type="text" id="search-bar" placeholder="Search your desired language" onkeyup="search()">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="lang-container" id="lang-container">
+                <div class="content">
+                    <img src="/assets/program-lang/html-logo.webp" alt="">
+                    <div class="content-desc">
+                        <h3>HTML</h3>
+                        <div class="btn-desc">
+                            <button class="btn">Continue</button>
+                            <button class="btn" id="btn-delete">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <img src="/assets/program-lang/java-logo.webp" alt="">
+                    <div class="content-desc">
+                        <h3>Java</h3>
+                        <div class="btn-desc">
+                            <button class="btn">Continue</button>
+                            <button class="btn" id="btn-delete">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <img src="/assets/program-lang/css-logo.webp" alt="">
+                    <div class="content-desc">
+                        <h3>CSS</h3>
+                        <div class="btn-desc">
+                            <button class="btn">Continue</button>
+                            <button class="btn" id="btn-delete">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <img src="/assets/program-lang/javascript-logo.webp" alt="">
+                    <div class="content-desc">
+                        <h3>JavaScript</h3>
+                        <div class="btn-desc">
+                            <button class="btn">Continue</button>
+                            <button class="btn" id="btn-delete">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="account-info">
                 <div class="profile-segment">
                     <div class="segment-header">
                         <h3>Account Information</h3>   
-                        <button>Edit</button> 
+                        <button onclick="location.href='/user-page/user-setting/user-setting.html'">Edit</button> 
                     </div>
                     <hr>
                     <div class="display-information">
@@ -60,74 +116,9 @@
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" value="john.doe@example.com" disabled>    
     
-                        <label for="phone">Phone Number:</label>
-                        <input type="text" id="phone" name="phone" value="0812xxxxxx" disabled>
                     </div>
                 </div>    
-            </div>
-
-            <div class="profile-container">
-                <div class="profile-segment">
-                    <div class="segment-header">
-                        <h3>Password</h3>   
-                    </div>
-                    <hr>
-                    <form id="passwordForm">
-                        <label for="current-password">Current Password:</label>
-                        <input type="password" id="current-password" name="current-password" required>
-                
-                        <label for="new-password">New Password:</label>
-                        <input type="password" id="new-password" name="new-password" required>
-                        <span id="passwordError" class="error-message"></span>
-                
-                        <label for="confirm-password">Confirm New Password:</label>
-                        <input type="password" id="confirm-password" name="confirm-password" required>
-                        <span id="confirmPasswordError" class="error-message"></span>
-                
-                        <div class="btn-submit">
-                            <input type="submit" value="Change Password">
-                        </div>
-                    </form>
-                </div>    
-            </div>
-
-            <div class="delete-container">
-                <div class="delete-segment">
-                    <div class="delete-header">
-                        <h3>DELETE ACCOUNT</h3>    
-                    </div>
-                    <hr>
-                    <div class="delete-disclaimer">
-                        <p>Before proceeding, please read and understand the following disclaimer:</p>
-                        <br>
-                        <div class="disclaimer">
-                            <p>
-                                <strong>Disclaimer: <br></strong> Deleting your account is an irreversible action. 
-                                By confirming the deletion of your account, all your data, including profile information, 
-                                settings, and associated content, will be permanently removed from our system.
-                            </p>
-                            <br>
-                            <p>
-                                Please ensure that you have backed up any important data and consider the implications 
-                                of losing access to your account before proceeding. Once the account is deleted, it 
-                                cannot be recovered, and you will need to create a new account if you wish to use our services again.
-                            </p>
-                        </div>
-                        <br>
-                        <form id="deleteAccountForm" onsubmit="deleteAccount(event)">
-                            <label for="confirmation">Type 'DELETE' to confirm:</label>
-                            <input type="text" id="confirmation" name="confirmation" required>
-                    
-                            <div class="btn-submit">
-                                <input type="submit" value="Delete Account">
-                            </div>
-                        </form>
-                    </div>
-                </div>    
-            </div>
-        </section>
-
-        
+        </div>
     </main>
     <script src="user.js"></script>
 </body>
