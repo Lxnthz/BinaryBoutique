@@ -14,6 +14,7 @@ const search = () => {
                 languages[i].style.display = "";
             } else {
                 languages[i].style.display = "none";
+                
             }
         }
     }
