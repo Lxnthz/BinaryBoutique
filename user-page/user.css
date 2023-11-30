@@ -247,3 +247,29 @@ input[type="submit"]:hover {
     color: white;
     cursor: pointer;
 }
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+}
+.logout-btn button {
+    border: none;
+    background-color: transparent;
+}
+
+.logout-btn:hover {
+    background-color: #F40000;
+    transform: scale(1.1);
+}

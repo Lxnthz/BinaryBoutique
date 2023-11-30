@@ -35,7 +35,7 @@
                 <header>
                     <div class="toc">
                         <h2>TABLE OF CONTENTS</h2>
-                        <a href="#"><i class='bx bx-home-alt'></i></a>
+                        <a href="/homepage/homepage.html"><i class='bx bx-home-alt'></i></a>
                     </div>
                     
                     <hr style="border: 1px solid white;">
@@ -48,28 +48,6 @@
                         <ul>
                             <li><button onclick="location.href='/courses-page/html-page/subtopics/html-intro/html_intro.html'">HTML Introduction</button></li>
                             <li><button style="color: greenyellow;" onclick="location.href='#'">HTML Basics</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-comment/html_comment.html'">HTML Comments</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-elements/html_element.html'">HTML Elements</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-attributes/html_attr.html'">HTML Attributes</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-paragraph/html_paragraph.html'">HTML Paragraph</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-headings/html_heading.html'">HTML Headings</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-quotation/html_quote.html'">HTML Quotation</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-textformatting/html_tformat.html'">HTML Text Formatting</button></li>
-                            <li><button onclick="location.href='/courses-page/html-page/subtopics/html-links/html_links.html'">HTML Links</button></li>
-                        </ul>
-        
-                        <div class="topic-header">
-                            <span>Introduction to HTML</span>
-                        </div>
-                        <ul>
-                            <li><button onclick="location.href='#'">DUMMY</button></li>
-                        </ul>
-        
-                        <div class="topic-header">
-                            <span>Introduction to HTML</span>
-                        </div>
-                        <ul>
-                            <li><button onclick="location.href='#'">DUMMY</button></li>
                         </ul>
                     </div>
                 </div>
@@ -112,35 +90,82 @@
             </div>
 
             <div class="sub-content">
-                <h2>Basic Structure of an HTML Web Page</h2>
-                <p>The fundamental layout of an HTML page is outlined beneath, featuring key elements such as the doctype declaration, HTML, head, title, and body elements. These components collectively constitute the foundational structure upon which all web pages are constructed.</p>
-            </div>
-
-            <div class="sub-content">
-                <h2>HTML Basic Tags</h2>
-                <ul>
-                    <li><code class="code-ex">&lt;!DOCTYPE html&gt;</code> – A doctype, or document type declaration, is an instruction informing the web browser about the markup language used in the current page. It's not a tag or element and isn't case-sensitive.</li>
-                    <li><code class="code-ex">&lt;html&gt;</code> – This tag establishes the root element of an HTML document, indicating to the browser that the content is in HTML. It serves as the second outer container, encompassing all other elements.</li>
-                    <li><code class="code-ex">&lt;head&gt;</code> – Used to define the head section of an HTML document, this tag contains information related to the document. Elements within the head tag are not visible on the webpage's front end.</li>
-                    <li><code class="code-ex">&lt;body&gt;</code> – The body tag encapsulates all the visible content of a webpage. Essentially, the body content is what the browser displays on the frontend.</li>
-                </ul>
-            </div>
-
-            <div class="sub-content">
-                <h4>Example: </h4>
+                <h2>The <code>&lt;!DOCTYPE&gt;</code> Declaration</h2>
+                <p>The <code class="code-ex">&lt;!DOCTYPE&gt;</code>declaration represents the document type, and helps browsers to display web pages correctly.</p>
+                <p>It must only appear once, at the top of the page (before any HTML tags).</p>
+                <p>The <code class="code-ex">&lt;!DOCTYPE&gt;</code> declaration is not case sensitive.</p>
+                <p>The <code class="code-ex">&lt;!DOCTYPE&gt;</code> declaration for HTML5 is:</p>
+                
                 <pre>
                     <code contenteditable>
-                &lt;!DOCTYPE html&gt;
-                &lt;html&gt;
-                    &lt;head&gt;
-                        &lt;title&gt;Copyable Code Snippet&lt;/title&gt;
-                    &lt;/head&gt;
-                    &lt;body&gt;
-                        &lt;p&gt;Hello, World!&lt;/p&gt;
-                    &lt;/body&gt;
-                &lt;/html&gt;
+                        &lt;!DOCTYPE html&gt;
                     </code>
                 </pre>
+            </div>
+
+            <div class="sub-content">
+                <h2>HTML Paragraphs</h2>
+                <p>HTML paragraphs are defined with the <code class="code-ex">&lt;p&gt;</code> tag:</p>
+
+                <pre>
+                    <code contenteditable>
+                        &lt;p&gt;This is a paragraph&lt;/p&gt;
+                        &lt;p&gt;This is another paragraph&lt;/p&gt;
+                    </code>
+                    </pre>
+            </div>
+
+            <div class="sub-content">
+                <h2>HTML Headings</h2>
+                <p>HTML headings are defined with the <code class="code-ex">&lt;h1&gt;</code> to <code class="code-ex">&lt;h6&gt;</code> tags.</p>
+                <p><code class="code-ex">&lt;h1&gt;</code> defines the most important heading. <code class="code-ex">&lt;h6&gt;</code> defines the least important heading:</p>
+
+                <pre>
+                    <code contenteditable>
+                        &lt;h1&gt;This is heading 1&lt;/h1&gt;
+                        &lt;h2&gt;This is heading 2&lt;/h2&gt;
+                        &lt;h3&gt;This is heading 3&lt;/h3&gt;
+                    </code>
+                    </pre>
+            </div>
+
+            <div class="sub-content">
+                <h2>HTML Links</h2>
+                <p>HTML links are defined with the <code class="code-ex">&lt;a&gt;</code> tag:</p>
+
+                <pre>
+                    <code contenteditable>
+                        &lt;a href="https://binaryboutique.com"&gt;Clickable link&lt;/a&gt;
+                    </code>
+                </pre>
+
+                <p>The link's destination is specified in the <code class="code-ex">&lt;href&gt;</code> attribute.</p>
+                <p>Attributes are used to provide additional information about HTML elements.</p>
+                <p>You will learn more about attributes in a later chapter.</p>
+            </div>
+
+            <div class="sub-content">
+                <h2>HTML Images</h2>
+                <p>HTML images are defined with the <code class="code-ex">&lt;img&gt;</code> tag:</p>
+                <p>The source file (src), alternative text (alt), width, and height are provided as attributes:</p>
+                <pre>
+                    <code contenteditable>
+                        &lt;img src="binaryboutique" alt="binaryboutique" width="auto" height="auto"&gt;
+                    </code>
+                </pre>
+
+                <p>The link's destination is specified in the <code class="code-ex">&lt;href&gt;</code> attribute.</p>
+                <p>Attributes are used to provide additional information about HTML elements.</p>
+                <p>You will learn more about attributes in a later chapter.</p>
+            </div>
+
+            <div class="sub-content">
+                <h2>How to View HTML Source</h2>
+                <p>Have you ever seen a Web page and wondered "Hey! How did they do that?"</p><br>
+                <h3>View HTML Source Code:</h3>
+                <p>Click CTRL + U in an HTML page, or right-click on the page and select "View Page Source". This will open a new tab containing the HTML source code of the page.</p><br>
+                <h3>Inspect an HTML Element:</h3>
+                <p>Right-click on an element (or a blank area), and choose "Inspect" to see what elements are made up of (you will see both the HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the Elements or Styles panel that opens.</p>
             </div>
 
             <div class="btn-container">
