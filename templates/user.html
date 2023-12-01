@@ -1,0 +1,487 @@
+{% extends 'base.html' %}
+{% block title %}My First App{% endblock title %}
+{% block style %}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    color: black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: black;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    color: black;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: black;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* HEADER ---------------------------------------------------------------------------------*/
+header {
+    background-color: #a4def6;
+}
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+.profile-header h1, .track-record p {
+    color: black;
+}
+.image-header {
+    background-color: #053B50;
+}
+.image-header img {
+    width: 100%;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #053B50;
+    min-height: 80vh;
+}
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    background-color: #23586d;
+    border-radius: 5px;
+    padding: 10px;
+}
+.lang-container img {
+    width: 80px;
+}
+/* SEARCH CONTAINER ---------------------------------------------------------------- */
+.search-bar {
+    width: 100%;
+    position: relative;
+    display: flex;
+    margin: 10px;
+    color: black;
+}
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: #f6f6f6;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.5s ease-in-out;
+    color: black;
+}
+.search-bar input[type="text"]:focus {
+    border-color: #428bca;
+    box-shadow: 0 0 10px #428bca;
+}
+.search-bar button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+    background: #f6f6f6;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: black;
+}
+.search-bar button:hover {
+    background: #428bca;
+}
+.search-bar button i {
+    font-size: 18px;
+    color: black;
+}
+/* LANGUANGE CONTAINER ---------------------------------------------------------------- */
+.lang-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    align-items: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 1px solid white;
+    margin-bottom: 20px;
+}
+.btn-desc button {
+    align-items: center;
+    background-color: rgb(78, 204, 99);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: 500;
+    transition: .1s ease-in-out;
+    color: #053B50;
+    width: 100px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.btn-desc {
+    display: flex;
+    gap: 15px;
+}
+#btn-delete {
+    background-color: rgb(190, 22, 22);
+    color: white;
+}
+#btn-delete:hover {
+    background-color: transparent;
+    border: 2px solid rgb(190, 22, 22);
+}
+.btn-desc button:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 2px;
+    background-color: transparent;
+    border: 2px solid rgb(78, 204, 99);
+    color: white;   
+    cursor: pointer;
+}
+/* ACCOUNT INFORMATION ---------------------------------------------------------- */
+.profile-segment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 10px;
+}
+.segment-header {
+    display: flex;
+    justify-content: space-between;
+}
+.segment-header button {
+    padding: 5px;
+    width: 50px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .5s ease-in-out;
+}
+.segment-header button:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    color: white;
+    cursor: pointer;
+}
+.display-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    border: none;
+    background: #095979;
+    border-bottom: 1px solid;
+    font-size: 14px;
+    padding: 5px;
+    padding-bottom: 5px;
+}
+#passwordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input[type="submit"] {
+    background-color: rgb(78, 204, 99);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: .5s ease-in-out;
+}
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    color: white;
+    cursor: pointer;
+}
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+}
+.logout-btn button {
+    border: none;
+    background-color: transparent;
+}
+
+.logout-btn:hover {
+    background-color: #F40000;
+    transform: scale(1.1);
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}">
+                <img src="{% static 'assets/logo/small-logo-black.webp' alt="Boutique"%}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="profile-header">
+        <h1>{{akun.username}}</h1>
+        <div class="track-record">
+            <p></p>
+        </div>
+    </section>
+
+    <section class="image-header">
+        <img src="{% static 'assets/additional-svgs/profile-gradient.svg' alt="" %}">
+    </section>
+</header>
+
+<main>
+    <div class="content-container">
+        <h2>Your Track</h2>
+
+        <div class="search-bar">
+            <input type="text" id="search-bar" placeholder="Search your desired language" onkeyup="search()">
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="lang-container" id="lang-container">
+            {% for i in courses %}
+                {% if i.course.course_title == "HTML" %}
+                <div class="content">
+                    <img src="{% static 'assets/program-lang/html-logo.webp' %}">
+                    <div class="content-desc">
+                        <h3>HTML</h3>
+                        <div class="btn-desc">
+                            <a href="/intro_html/{{akun.id}}/">
+                                <button class="btn">Continue</button>
+                            </a>
+                            <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                                <button class="btn" id="btn-delete">Remove</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {%if i.course.course_title == "CSS" %}
+                <div class="content">
+                    <img src="{% static 'assets/program-lang/css-logo.webp' %}">
+                    <div class="content-desc">
+                        <h3>CSS</h3>
+                        <div class="btn-desc">
+                            <a href="/intro_css/{{akun.id}}/">
+                                <button class="btn">Continue</button>
+                            </a>
+                            <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                                <button class="btn" id="btn-delete">Remove</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {%if i.course.course_title == "Javascript" %}
+                <div class="content">
+                    <img src="{% static 'assets/program-lang/javascript-logo.webp' %}">
+                    <div class="content-desc">
+                        <h3>Javascript</h3>
+                        <div class="btn-desc">
+                            <a href="/intro_js/{{akun.id}}/">
+                                <button class="btn">Continue</button>
+                            </a>
+                            <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                                <button class="btn" id="btn-delete">Remove</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {%if i.course.course_title == "PHP" %}
+            <div class="content">
+                <img src="{% static 'assets/program-lang/php-logo.webp' %}">
+                <div class="content-desc">
+                    <h3>PHP</h3>
+                    <div class="btn-desc">
+                        <a href="/intro_php/{{akun.id}}/">
+                            <button class="btn">Continue</button>
+                        </a>
+                        <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                            <button class="btn" id="btn-delete">Remove</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {%if i.course.course_title == "C++" %}
+            <div class="content">
+                <img src="{% static 'assets/program-lang/cpp-logo.webp' %}">
+                <div class="content-desc">
+                    <h3>C++</h3>
+                    <div class="btn-desc">
+                        <a href="/intro_cpp/{{akun.id}}/">
+                            <button class="btn">Continue</button>
+                        </a>
+                        <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                            <button class="btn" id="btn-delete">Remove</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    {%if i.course.course_title == "Ruby" %}
+    <div class="content">
+        <img src="{% static 'assets/program-lang/ruby-logo.webp' %}">
+        <div class="content-desc">
+            <h3>Ruby</h3>
+            <div class="btn-desc">
+                <a href="/intro_ruby/{{akun.id}}/">
+                    <button class="btn">Continue</button>
+                </a>
+                <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                    <button class="btn" id="btn-delete">Remove</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{%if i.course.course_title == "Java" %}
+    <div class="content">
+        <img src="{% static 'assets/program-lang/java-logo.webp' %}">
+        <div class="content-desc">
+            <h3>Java</h3>
+            <div class="btn-desc">
+                <a href="/intro_java/{{akun.id}}/">
+                    <button class="btn">Continue</button>
+                </a>
+                <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                    <button class="btn" id="btn-delete">Remove</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{%if i.course.course_title == "Python" %}
+        <div class="content">
+            <img src="{% static 'assets/program-lang/python-logo.webp' %}">
+            <div class="content-desc">
+                <h3>Python</h3>
+                <div class="btn-desc">
+                    <a href="/intro_python/{{akun.id}}/">
+                        <button class="btn">Continue</button>
+                    </a>
+                    <a href="/remove_course/{{akun.id}}/{{i.course.id}}/">
+                        <button class="btn" id="btn-delete">Remove</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+            
+        {% endfor %}   
+        </div>
+    </div>
+
+    <div class="account-info">
+            <div class="profile-segment">
+                <div class="segment-header">
+                    <h3>Account Information</h3>   
+                    <button onclick="location.href='/settings_page/{{akun.id}}'">Edit</button> 
+                </div>
+                <hr>
+                <div class="display-information">
+                    <label for="fname">Full Name:</label>
+                    <input type="text" id="fname" name="fname" value="{{akun.fullname}}" disabled>
+    
+                    <label for="uname">Username:</label>
+                    <input type="text" id="uname" name="uname" value="{{akun.username}}" disabled>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{akun.email}}" disabled>    
+
+                </div>
+            </div>    
+    </div>
+
+    <div class="logout-btn">
+        <button onclick="location.href='/login/'">Logout</button>
+    </div>
+</main>
+<script src="{% static 'js/user.js' %}"></script>
+{% endblock content %}

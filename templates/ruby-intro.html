@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% block style%}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    /* position: relative; */
+    left: 400px;
+    min-height: 100vh;
+    background-color: #053B50;
+    display: flex;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* SIDE BAR ---------------------------------------------------------------------------------*/
+.toc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toc a {
+    transition: .3s ease-in-out;
+}
+.toc a:hover {
+    
+}
+.sidebar {
+    background-color: #0b6b91;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    padding: 10px;
+}
+.scrollbox-items ul li button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    transition: .3s ease-in-out;
+    text-align: left;
+}
+.scrollbox-items ul li button:hover {
+    background-color: rgba(245, 245, 245, 0.596);
+
+}
+/* CONTENT ---------------------------------------------------------------------------------*/
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 30px;
+}
+.content-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.track-menu {
+    display: flex;
+    gap: 20px;
+}
+.track-menu img {
+    width: 50%;
+}
+/* SUB CONTENT -----------------------------------------------------------------------*/
+.sub-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    gap: 5px;
+}
+.sub-content span {
+    font-weight: 700;
+}
+.code-ex {
+    color: green;
+    font-weight: bold;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* BUTTON -----------------------------------------------------------------------*/
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-container button {
+    padding: 10px;
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .3s ease-in-out;
+}
+.btn-container button:hover {
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    cursor: pointer;
+}
+/* CODE SNIPPETS -----------------------------------------------------------------------*/
+pre {
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    border: 1px solid;
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}/">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique" %}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}/">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}/">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <aside>
+        <section class="sidebar">
+            <header>
+                <div class="toc">
+                    <h2>TABLE OF CONTENTS</h2>
+                    <a href="/backtoHome/{{akun.id}}"><i class='bx bx-home-alt'></i></a>
+                </div>
+                
+                <hr style="border: 1px solid white;">
+            </header>
+            <div class="scroll-box">
+                <div class="scrollbox-items">
+                    <div class="topic-header">
+                        <span >C++ Intro</span>
+                    </div>
+                    <ul>
+                        <li><button style="color: greenyellow;" onclick="location.href='#'">Python Introduction</button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </aside>
+    <section class="content">
+        <div class="content-title">
+            <h1>Get to know Ruby!</h1>
+            <hr>    
+        </div>
+
+        <div class="track-menu">
+            <img src="{% static 'assets/courses-header/ruby-header.png' alt="" %}">
+            <div class="track-menu-add">
+                <h2>Add Ruby to your library</h2>
+                <div class="btn-container">
+                    {% if certificate == "" %}
+                    <a href="/add_course/{{akun.id}}/7"><button>Add</button></a>  
+                    {% else %}
+                    <p> {{certificate}} </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <p>Ruby is a pure object-oriented programming language. It was created in 1993 by Yukihiro Matsumoto of Japan.</p>
+        <p>You can find the name Yukihiro Matsumoto on the Ruby mailing list at www.ruby-lang.org. Matsumoto is also known as Matz in the Ruby community.</p>
+
+        <div class="sub-content">
+            <h2>Ruby is "A Programmer's Best Friend".</h2>
+            <p>Ruby has features that are similar to those of Smalltalk, Perl, and Python. Perl, Python, and Smalltalk are scripting languages. Smalltalk is a true object-oriented language. Ruby, like Smalltalk, is a perfect object-oriented language. Using Ruby syntax is much easier than using Smalltalk syntax.</p>
+        </div>
+
+        <div class="sub-content">
+            <h2>Features of Ruby</h2>
+            <ol>
+                <li>- Ruby is an open-source and is freely available on the Web, but it is subject to a license.</li>
+                <li>- Ruby is a general-purpose, interpreted programming language.</li>
+                <li>- Ruby is a true object-oriented programming language.</li>
+                <li>- Ruby is a server-side scripting language similar to Python and PERL.</li>
+                <li>- Ruby can be used to write Common Gateway Interface (CGI) scripts.</li>
+                <li>- Ruby can be embedded into Hypertext Markup Language (HTML).</li>
+                <li>- Ruby has a clean and easy syntax that allows a new developer to learn very quickly and easily.</li>
+                <li>- Ruby has similar syntax to that of many programming languages such as C++ and Perl.</li>
+                <li>- Ruby is very much scalable and big programs written in Ruby are easily maintainable.</li>
+                <li>- Ruby can be used for developing Internet and intranet applications.</li>
+                <li>- Ruby can be installed in Windows and POSIX environments.</li>
+                <li>- Ruby support many GUI tools such as Tcl/Tk, GTK, and OpenGL.</li>
+                <li>- Ruby can easily be connected to DB2, MySQL, Oracle, and Sybase.</li>
+                <li>- Ruby has a rich set of built-in functions, which can be used directly into Ruby scripts.</li>
+            </ol>
+        </div>
+
+        <div class="btn-container">
+            <button onclick="location.href='/backtoHome/{{akun.id}}/'">Finish</button>
+        </div>
+    </section>
+{% endblock content %}

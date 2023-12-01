@@ -1,0 +1,747 @@
+{% extends 'base.html' %}
+{% block title %}My First App{% endblock title %}
+{% block style %}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    background-color: #053B50;
+}
+/* HOMEPAGE HEADER ---------------------------------------------------------------------------------*/
+.homepage-header {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.header-left-side {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.header-left-side img {
+    display: flex;
+    align-items: center;
+}
+.header-btn button {
+    margin: 20px;
+    align-items: center;
+    background-color: rgb(78, 204, 99);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: 500;
+    transition: .1s ease-in-out;
+    color: #053B50;
+}
+.header-btn button:hover {
+    cursor: pointer;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 2px;
+    background-color: transparent;
+    border: 2px solid rgb(78, 204, 99);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* QUOTES CONTAINER ---------------------------------------------------------------- */
+.quote-container {
+    text-align: center;
+    max-width: 100%;
+    margin: auto;
+    background-color: #428bca;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid #305777;
+    transition: border-bottom 0.3s ease-in-out;
+}
+.quote-container:hover {
+    border-bottom: 8px solid #305777;
+}
+#quote-text, #quote-creator {
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.quote-container:hover {
+    border-bottom: 8px solid #305777;
+}
+
+#quote-container:hover #quote-text {
+    opacity: 1;
+}
+
+/* QUICK MENU ---------------------------------------------------------------------------------*/
+.quick-menu-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+    border: 2px solid #428bca;
+    border-radius: 5px;
+    padding: 20px;
+    max-height: min-content;
+    justify-content: center;    
+    align-items: center;
+}
+.quick-menu {
+    display: flex;
+    margin: 2px;
+    margin-top: 5px;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 200px;
+    background-color: #305777;
+    transition: .5s ease-in-out;
+    position: relative;
+}
+.menu:hover {
+    box-shadow: 0 0 20px #428bca;
+    transform: scale(1.1);
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid white;
+    gap: 2px;
+}
+#menu-start {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#menu-end {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+/* "WHY LEARN" CONTAINER ---------------------------------------------------------------- */
+.why-learn {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.why-learn-title {
+    display: flex;
+    justify-content: center;
+}
+.why-learn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.why-learn-content-container {
+    display: flex;
+    align-items: center;
+}
+.why-learn-content-title {
+    display: flex;
+    flex-direction: column;
+}
+.why-learn-content-title h4 {
+    font-size: 20px;
+}
+/* "WHY US" CONTAINER ---------------------------------------------------------------- */
+.why-us {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.why-us-title {
+    display: flex;
+    justify-content: center;
+}
+.why-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.why-us-content-container {
+    display: flex;
+    align-items: center;
+}
+.why-us-content-title {
+    display: flex;
+    flex-direction: column;
+}
+.why-us-content-title h4 {
+    font-size: 20px;
+}
+
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+
+/* FAQ CONTAINER ---------------------------------------------------------------- */
+.faq {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.faq-title {
+    display: flex;
+    justify-content: center;
+}
+.dropdown {
+    margin: 20px auto;
+    width: 100%;
+}
+.dropdown li {
+    list-style: none;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+.dropdown li label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+label::before {
+    content: '+';
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+input[type="radio"] {
+    display: none;
+}
+.dropdown .faq-content {
+    color: #555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s,
+                padding .5s;
+}
+.dropdown input[type="radio"]:checked + label + .faq-content {
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+.dropdown input[type="radio"]:checked + label::before {
+    content: '-';
+}
+
+/* FOOTER ---------------------------------------------------------------- */
+footer {
+    background: #a4def6;
+    margin: 0;
+}
+.bg-transition img {
+    width: 100%;
+}
+.foot-container {
+    padding: 20px;
+}
+.foot-left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.foot-left-container img {
+    width: 20%;
+}
+.foot-left-copyright h2 {
+    color: black;
+    font-size: 16px;
+}
+{% endblock style %}
+{% block content%}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique"%}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="quote-container" onmouseover="showCreator()" onmouseout="hideCreator()">
+        <p id="quote-text">Loading...</p>
+        <p id="quote-creator">- John Doe -</p>
+    </div>
+    
+</header>
+
+<main>
+    <section class="header-container">
+        <div class="homepage-header">
+            <div class="header-left-side">
+                <div class="header-img">
+                    <img src="{% static 'assets/logo/icon-white.webp' alt="#" %}">
+                </div>
+                <div class="header-text">
+                    <h1>Welcome, {{akun.username}}!</h1>
+                    <p>Continue where left off or start a new journey!</p>
+                    <p><b>Binary Boutique is open-source and not-for-profit.</b></p>
+                </div>
+            </div>
+
+            <div class="header-btn">
+                <a href="/go_to_user/{{akun.id}}"><button>See your journey on Binary Boutique</button></a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quick-menu-container">
+        <div class="quick-menu-header">
+            <h3>Quick Menu:</h3>
+        </div>
+
+        <div class="quick-menu">
+            <div class="menu" id="menu-start" onclick="location.href='/learn-page/{{akun.id}}'">
+                <img src="{% static 'assets/additional-svgs/dev-green.svg' alt="" %}">
+                <p>Continue learning</p>
+            </div>
+            <div class="menu">
+                <img src="{% static 'assets/additional-svgs/comm-yellow.svg' alt="" %}">
+                <p>Join Our Community</p>
+            </div>
+            <div class="menu">
+                <img src="{% static 'assets/additional-svgs/donate.svg' alt="" %}">
+                <p>Donate Us</p>
+            </div>
+            <div class="menu" id="menu-end" onclick="location.href='/feedback/{{akun.id}}/'">
+                <img src="{% static 'assets/additional-svgs/feedback.svg' alt="" %}">
+                <p>Give us feedback!</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="horizonal-line">
+
+    <section class="why-learn">
+        <div class="why-learn-title">
+            <h2>Why you should start to code?</h2>
+        </div>
+        
+        <div class="why-learn-content-container">
+            <aside class="why-learn-img">
+                <img src="{% static 'assets/additional-svgs/coding.svg' %}" alt="coding" style="width: 300px;">
+            </aside>
+
+            <div class="why-learn-content">
+                <div class="why-learn-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Problem Solving:</h4>
+                    <div class="why-learn-content-desc">
+                        <p>Learning to code enhances your problem-solving skills. Programming challenges you to break down complex problems into smaller, more manageable parts and develop systematic solutions.</p>
+                    </div>
+                </div>
+
+                <div class="why-learn-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Creativity and Innovation:</h4>
+                    <div class="why-learn-content-desc">
+                        <p>Coding is a creative process that allows you to bring your ideas to life. Whether you're developing a website, creating a mobile app, or working on a software project, coding empowers you to turn your imagination into reality.</p>
+                    </div>
+                </div>
+
+                <div class="why-learn-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Career Opportunities:</h4>
+                    <div class="why-learn-content-desc">
+                        <p>Coding skills open doors to a wide range of career opportunities. In today's digital age, almost every industry relies on technology, creating a high demand for skilled programmers. Whether you're interested in web development, data science, artificial intelligence, or app development, coding proficiency can lead to fulfilling and well-paying careers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="horizonal-line">
+
+    <section class="why-us">
+        <div class="why-us-title">
+            <h2>Why Binary Boutique?</h2>
+        </div>
+
+        <div class="why-us-content-container">
+            <div class="why-us-content">
+                <div class="why-us-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Rich Content Library:</h4>
+                    <div class="why-us-content-desc">
+                        <p>Our platform offers a diverse range of courses, tutorials, and coding challenges covering various programming languages, frameworks, and skill levels. Whether you're a beginner or an experienced developer, our comprehensive content caters to your learning needs.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Engaging Learning Paths:</h4>
+                    <div class="why-us-content-desc">
+                        <p>We provide structured learning paths to guide users through a logical progression of skills. From fundamental concepts to advanced topics, our carefully curated paths ensure a well-rounded and engaging learning experience.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Job-ready Skills:</h4>
+                    <div class="why-us-content-desc">
+                        <p>Our platform is designed to equip you with practical, job-ready skills. From coding interviews preparation to real-world project experience, we focus on enhancing your employability in the ever-evolving tech industry.</p>
+                    </div>
+                </div>  
+            </div>
+
+            <aside class="why-learn-img">
+                <img src="{% static 'assets/additional-svgs/why.svg'%}" alt="why" style="width: 300px;">
+            </aside>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="faq-title">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+        </div>
+
+        <ul class="dropdown">
+            <li>
+                <input type="radio" name="dropdown" id="faq-first" checked>
+                <label for="faq-first">What will I learn in this coding course?</label>
+                <div class="faq-content">
+                    <p>In this coding bootcamp/course, you will learn the basics of programming, learn the JavaScript programming language, web programming, and more.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-second" checked>
+                <label for="faq-second">How can I get started with learning a programming language on Binary Boutique?</label>
+                <div class="faq-content">
+                    <p>To begin learning, simply navigate to our "Learn" section for the programming language of your choice. We provide step-by-step guides, tutorials, and resources to help you kickstart your learning journey.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-third" checked>
+                <label for="faq-third"> Is Binary Boutique suitable for beginners, or is it geared towards advanced developers?</label>
+                <div class="faq-content">
+                    <p>Our material caters to a wide audience, from beginners to advanced developers. We offer introductory content for those new to programming, as well as in-depth resources and advanced topics for seasoned developers.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-fourth" checked>
+                <label for="faq-fourth">Can I access your material for free, or is there a subscription fee?</label>
+                <div class="faq-content">
+                    <p>Our platform is freely accessible to everyone. We believe in making programming education inclusive and available to all. While all our content is available for free, we do offer a donation option for users who wish to support our mission and contribute to the sustainability of our platform. Your donations help us maintain and enhance the quality of our material, ensuring it remains freely accessible to learners worldwide.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-fifth" checked>
+                <label for="faq-fifth">How can I contribute to your platform or report errors in the content?</label>
+                <div class="faq-content">
+                    <p>We welcome contributions and appreciate users who help us improve our content. You can contribute by providing feedback, suggesting edits, or even submitting your own tutorials.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+
+<footer>
+    <section class="bg-transition">
+        <img src="{% static 'assets/additional-svgs/bg-footer.svg' alt="" %}">
+    </section>
+    <div class="foot-container">
+        <section class="foot-left-container">
+            <img src="{% static 'assets/logo/main-logo-black.webp' alt=""%}">
+            <div class="foot-left-copyright">
+                <h2>Copyright &copy; 2023</h2>
+            </div>
+        </section>
+
+        <section class="foot-right-container">
+            
+        </section>
+    </div>
+</footer>
+
+<script src="{% static 'js/homepage.js' %}"></script>       
+{% endblock content%}
+
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique" %}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}/">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}/">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="quote-container" onmouseover="showCreator()" onmouseout="hideCreator()">
+        <p id="quote-text">Loading...</p>
+        <p id="quote-creator">- John Doe -</p>
+    </div>
+    
+</header>
+
+<main>
+    <section class="header-container">
+        <div class="homepage-header">
+            <div class="header-left-side">
+                <div class="header-img">
+                    <img src="{% static 'assets/logo/icon-white.webp' %}">
+                </div>
+                <div class="header-text">
+                    <h1>Welcome, {{akun.username}}!</h1>
+                    <p>Continue where left off or start a new journey!</p>
+                    <p><b>Binary Boutique is open-source and not-for-profit.</b></p>
+                </div>
+            </div>
+
+            <div class="header-btn">
+                <a href="/go_to_user/{{akun.id}}"><button>See your journey on Binary Boutique</button></a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quick-menu-container">
+        <div class="quick-menu-header">
+            <h3>Quick Menu:</h3>
+        </div>
+
+        <div class="quick-menu">
+            <div class="menu" id="menu-start" onclick="location.href='/learn-page/{{akun.id}}'">
+                <img src="{% static 'assets/additional-svgs/dev-green.svg' alt=""%}">
+                <p>Continue learning</p>
+            </div>
+            <div class="menu">
+                <img src="{% static 'assets/additional-svgs/comm-yellow.svg' alt="" %}">
+                <p>Join Our Community</p>
+            </div>
+            <div class="menu">
+                <img src="{% static 'assets/additional-svgs/donate.svg'  alt="" %}">
+                <p>Donate Us</p>
+            </div>
+            <div class="menu">
+                <img src="{% static 'assets/additional-svgs/cust-serv.svg' alt="" %}">
+                <p>Customer Service</p>
+            </div>
+            <div class="menu" id="menu-end">
+                <img src="{% static 'assets/additional-svgs/feedback.svg' alt=""%}">
+                <p>Give us feedback!</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="horizonal-line">
+
+    <section class="why-learn">
+        <div class="why-learn-title">
+            <h2>Why you should start to code?</h2>
+        </div>
+        
+        <div class="why-learn-content-container">
+            <aside class="why-learn-img">
+                <img src="{% static 'assets/additional-svgs/coding.svg' alt="coding" style="width: 500px;"%}">
+            </aside>
+
+            <div class="why-learn-content">
+                <div class="why-learn-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Problem Solving:</h4>
+                    <div class="why-learn-content-desc">
+                        <p>Learning to code enhances your problem-solving skills. Programming challenges you to break down complex problems into smaller, more manageable parts and develop systematic solutions.</p>
+                    </div>
+                </div>
+
+                <div class="why-learn-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Creativity and Innovation:</h4>
+                    <div class="why-learn-content-desc">
+                        <p>Coding is a creative process that allows you to bring your ideas to life. Whether you're developing a website, creating a mobile app, or working on a software project, coding empowers you to turn your imagination into reality.</p>
+                    </div>
+                </div>
+
+                <div class="why-learn-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Career Opportunities:</h4>
+                    <div class="why-learn-content-desc">
+                        <p>Coding skills open doors to a wide range of career opportunities. In today's digital age, almost every industry relies on technology, creating a high demand for skilled programmers. Whether you're interested in web development, data science, artificial intelligence, or app development, coding proficiency can lead to fulfilling and well-paying careers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="horizonal-line">
+
+    <section class="why-us">
+        <div class="why-us-title">
+            <h2>Why Binary Boutique?</h2>
+        </div>
+
+        <div class="why-us-content-container">
+            <div class="why-us-content">
+                <div class="why-us-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Rich Content Library:</h4>
+                    <div class="why-us-content-desc">
+                        <p>Our platform offers a diverse range of courses, tutorials, and coding challenges covering various programming languages, frameworks, and skill levels. Whether you're a beginner or an experienced developer, our comprehensive content caters to your learning needs.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Engaging Learning Paths:</h4>
+                    <div class="why-us-content-desc">
+                        <p>We provide structured learning paths to guide users through a logical progression of skills. From fundamental concepts to advanced topics, our carefully curated paths ensure a well-rounded and engaging learning experience.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-content-title">
+                    <h4><i class='bx bx-checkbox-checked'></i> Job-ready Skills:</h4>
+                    <div class="why-us-content-desc">
+                        <p>Our platform is designed to equip you with practical, job-ready skills. From coding interviews preparation to real-world project experience, we focus on enhancing your employability in the ever-evolving tech industry.</p>
+                    </div>
+                </div>  
+            </div>
+
+            <aside class="why-learn-img">
+                <img src="{% static 'assets/additional-svgs/why.svg' alt="why" style="width: 500px;" %}">
+            </aside>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="faq-title">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+        </div>
+
+        <ul class="dropdown">
+            <li>
+                <input type="radio" name="dropdown" id="faq-first" checked>
+                <label for="faq-first">Lorem</label>
+                <div class="faq-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero eaque quam repellat natus consequatur ex saepe ducimus? Quos, nostrum.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-second" checked>
+                <label for="faq-second">Lorem</label>
+                <div class="faq-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero eaque quam repellat natus consequatur ex saepe ducimus? Quos, nostrum.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-third" checked>
+                <label for="faq-third">Lorem</label>
+                <div class="faq-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero eaque quam repellat natus consequatur ex saepe ducimus? Quos, nostrum.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-fourth" checked>
+                <label for="faq-fourth">Lorem</label>
+                <div class="faq-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero eaque quam repellat natus consequatur ex saepe ducimus? Quos, nostrum.</p>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" name="dropdown" id="faq-fifth" checked>
+                <label for="faq-fifth">Lorem</label>
+                <div class="faq-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero eaque quam repellat natus consequatur ex saepe ducimus? Quos, nostrum.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+
+<footer>
+    <section class="bg-transition">
+        <img src="{% static 'assets/additional-svgs/bg-footer.svg' alt="" %}">
+    </section>
+    <div class="foot-container">
+        <section class="foot-left-container">
+            <img src="{% static 'assets/logo/main-logo-black.webp' alt="" %}">
+            <div class="foot-left-copyright">
+                <h2>Copyright &copy; 2023</h2>
+            </div>
+        </section>
+
+        <section class="foot-right-container">
+            
+        </section>
+    </div>
+</footer>
+

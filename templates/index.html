@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block title %}My First App{% endblock title %}
+{% block style %}
+/* BODY -------------------------------------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+/* MAIN --------------------------------------------------------------------------------------------- */
+main {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-color: #393E46;
+    gap: 7px;
+}
+/* IMAGE CONTAINER PARENT ----------------------------------------------------------------------------- */
+.left-container, .right-container, .middle-container {
+    width: 35%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+.middle-container {
+    width: 30%;
+}
+/* IMAGE CONTAINER CHILD ----------------------------------------------------------------------------- */
+.upper, .bottom {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mid {
+    background-color: #eee;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 20px;
+    background-image: linear-gradient(45deg,#9ae0dc, #00ADB5, #9ae0dc);
+}
+.mid img {
+    max-width: 60%;
+}
+.mid-upper, .mid-bottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 25%;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+.mid-upper-child, .mid-bottom-child {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+.upper img, .bottom img, .mid-upper-child img, .mid-bottom-child img{
+    height: 101%;
+    object-fit: cover;
+    filter: brightness(65%);
+}
+/* BUTTON -------------------------------------------------------------------------------*/
+button a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+.btn {
+    display: flex;
+    gap: 10px;
+}
+.btn button {
+    border: 2px solid #00ADB5; 
+    border-radius: 10px;
+    background-color: transparent; 
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, 
+                transform 0.3s ease, 
+                margin-left 0.3s ease,
+                margin-right 0.3s ease;
+    width: 150px;
+    font-weight: 500;   
+    margin-left: 0;
+    margin-right: 0;
+    background-color: whitesmoke;
+}
+.btn button:hover {
+    background-color: #51a2bd;
+    text-decoration: none;
+    transform: scale(1.1);
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid #45b2d6; 
+}
+.btn button a:hover {
+    color: black; 
+    text-decoration: none;
+}
+.btn button a:visited, .btn button a:active {
+    text-decoration: none;
+}
+
+{% endblock style %}
+{% block content %}
+{% load static %}
+<main>
+    <div class="left-container">
+        <div class="upper">
+            <img src="{% static 'assets/startmenu/upper-left.webp' alt="" style="border-bottom-right-radius: 10px;"%}">
+        </div>
+        <div class="bottom">
+            <img src="{% static 'assets/startmenu/lower-left.webp' alt="" style="border-top-right-radius: 10px;"%}">
+        </div>
+    </div>
+
+    <div class="middle-container">
+        <div class="mid-upper">
+            <div class="mid-upper-child">
+                <img src="{% static 'assets/startmenu/mid-top-left.webp' alt="" style="border-radius: 0 0 10px 10px" %}">
+            </div>
+            <div class="mid-upper-child">
+                <img src="{% static 'assets/startmenu/mid-top-right.webp' alt="" style="border-radius: 0 0 10px 10px" %}">
+            </div>
+        </div>
+
+        <div class="mid">
+            <h2><span style="color:#fff">Kickstart</span> your career with</h2>
+            <img src="{% static 'assets/logo/main-logo-black.webp' alt=""%}">
+            <div class="btn">
+                <button id="btn-login"><a href="/login/">Login</a></button>
+                <button id="btn-register"><a href="/register/">Join</a></button>
+            </div>
+        </div>
+
+        <div class="mid-bottom">
+            <div class="mid-bottom-child">
+                <img src="{% static 'assets/startmenu/mid-bottom-left.webp' alt="" style="border-radius: 10px 10px 0 0;"%}">
+            </div>
+            <div class="mid-bottom-child">
+                <img src="{% static 'assets/startmenu/mid-bottom-right.webp' alt="" style="border-radius: 10px 10px 0 0;" %}">
+            </div>
+        </div>
+    </div>
+
+    <div class="right-container">
+        <div class="upper">
+            <img src="{% static 'assets/startmenu/upper-right.webp' alt="" style="border-bottom-left-radius: 10px;"%}">
+        </div>
+        <div class="bottom">
+            <img src="{% static 'assets/startmenu/lower-right.webp' alt="" style="border-top-left-radius: 10px;"%}">
+        </div>
+    </div>
+</main>
+    
+{% endblock content %}

@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% block title %}My First App{% endblock title %}
+{% block style %}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    /* position: relative; */
+    left: 400px;
+    min-height: 100vh;
+    background-color: #053B50;
+    display: flex;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* SIDE BAR ---------------------------------------------------------------------------------*/
+.toc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toc a {
+    transition: .3s ease-in-out;
+}
+
+.sidebar {
+    background-color: #0b6b91;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    padding: 10px;
+}
+.scrollbox-items ul li button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    transition: .3s ease-in-out;
+    text-align: left;
+}
+.scrollbox-items ul li button:hover {
+    background-color: rgba(245, 245, 245, 0.596);
+
+}
+/* CONTENT ---------------------------------------------------------------------------------*/
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 30px;
+}
+.content-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.track-menu {
+    display: flex;
+    gap: 20px;
+}
+.track-menu img {
+    width: 100%;
+}
+/* SUB CONTENT -----------------------------------------------------------------------*/
+.sub-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    gap: 5px;
+}
+.code-ex {
+    color: green;
+    font-weight: bold;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* BUTTON -----------------------------------------------------------------------*/
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-container button {
+    padding: 10px;
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .3s ease-in-out;
+}
+.btn-container button:hover {
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    cursor: pointer;
+}
+/* CODE SNIPPETS -----------------------------------------------------------------------*/
+pre {
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    border: 1px solid;
+}
+{% endblock style%}
+{% block content %}
+{% load static%}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}/">
+                <img src="{% static 'assets/logo/small-logo-white.webp'  alt="Boutique" %}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/learn.html">Learn</a></li>
+                <li><a href="/user-page/user.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <aside>
+        <section class="sidebar">
+            <header>
+                <div class="toc">
+                    <h2>TABLE OF CONTENTS</h2>
+                    <a href="#"><i class='bx bx-home-alt'></i></a>
+                </div>
+                
+                <hr style="border: 1px solid white;">
+            </header>
+            <div class="scroll-box">
+                <div class="scrollbox-items">
+                    <div class="topic-header">
+                        <span >HTML Intro</span>
+                    </div>
+                    <ul>
+                        <li><button onclick="location.href='/intro_html/{{akun.id}}/'">HTML Introduction</button></li>
+                        <li><button style="color: greenyellow;" onclick="location.href='#'">HTML Basics</button></li>
+                </div>
+            </div>
+        </section>
+    </aside>
+    <section class="content">
+        <div class="content-title">
+            <h1>HTML Basics</h1>
+            <hr>    
+        </div>
+
+        <div class="track-menu">
+            <img src="/assets/courses-header/html-header.png" alt="">
+        </div>
+        
+        <p>In this tutorial on HTML, whether you're a novice or an experienced professional, you'll find comprehensive coverage spanning from fundamental concepts to advanced topics. The guide offers clear, step-by-step instructions to facilitate smooth learning and enable you to master HTML.</p>
+        <p>HTML, an acronym for HyperText Markup Language, serves as the foundation for designing web pages. Through HTML, you have the capability to construct the entire framework of a website. The term "HTML" itself denotes the amalgamation of "Hypertext" and "Markup Language." Hypertext establishes connections between web pages, while the markup language structures the text documents enclosed within tags, defining the overall layout of web pages.</p>    
+
+        <div class="sub-content">
+            <h2>For what purpose is HTML employed?</h2>
+            <p>HTML finds application in forming the framework of web pages and websites visible on the Internet. It primarily encompasses tags and attributes utilized in crafting the design of web pages. Additionally, HTML facilitates the interconnection of multiple pages through hyperlinks.</p>
+        </div>
+
+        <div class="sub-content">
+            <h2>Basic Structure of an HTML Web Page</h2>
+            <p>The fundamental layout of an HTML page is outlined beneath, featuring key elements such as the doctype declaration, HTML, head, title, and body elements. These components collectively constitute the foundational structure upon which all web pages are constructed.</p>
+        </div>
+
+        <div class="sub-content">
+            <h2>HTML Basic Tags</h2>
+            <ul>
+                <li><code class="code-ex">&lt;!DOCTYPE html&gt;</code> – A doctype, or document type declaration, is an instruction informing the web browser about the markup language used in the current page. It's not a tag or element and isn't case-sensitive.</li>
+                <li><code class="code-ex">&lt;html&gt;</code> – This tag establishes the root element of an HTML document, indicating to the browser that the content is in HTML. It serves as the second outer container, encompassing all other elements.</li>
+                <li><code class="code-ex">&lt;head&gt;</code> – Used to define the head section of an HTML document, this tag contains information related to the document. Elements within the head tag are not visible on the webpage's front end.</li>
+                <li><code class="code-ex">&lt;body&gt;</code> – The body tag encapsulates all the visible content of a webpage. Essentially, the body content is what the browser displays on the frontend.</li>
+            </ul>
+        </div>
+
+        <div class="sub-content">
+            <h4>Example: </h4>
+            <pre>
+                <code contenteditable>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;Copyable Code Snippet&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;p&gt;Hello, World!&lt;/p&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+                </code>
+            </pre>
+        </div>
+
+        <div class="btn-container">
+            <button onclick="location.href='/intro_html/{{akun.id}}/'">Previous</button>
+            <button onclick="location.href='/backtoHome/{{akun.id}}/'">Finish</button>
+        </div>
+    </section>
+</main>
+{% endblock content %}

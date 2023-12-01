@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block title %}My First App{% endblock title %}
+{% block style %}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    background-color: #053B50;
+    min-height: 100vh;
+}
+
+/* FORM ---------------------------------------------------------------------------------*/
+.feedback-container {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+.feedback-container h2 {
+    display: flex;
+    justify-content: center;
+}
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#feedbackForm input {
+    color: black;
+}
+#feedbackForm input[type="submit"] {
+    margin: 20px;
+    align-items: center;
+    background-color: rgb(78, 204, 99);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: 500;
+    transition: .1s ease-in-out;
+    color: #053B50;
+    width: 100px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+#feedbackForm input[type="submit"]:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 2px;
+    background-color: transparent;
+    border: 2px solid rgb(78, 204, 99);
+    color: white;   
+    cursor: pointer;
+}
+textarea {
+    color: black;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+}
+{% endblock style%}
+{% block content %}
+{% load static%}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique" %}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="feedback-container">
+        <h2>Give us your feedback about Binary Boutique</h2>
+        <form action="/feedback/{{akun.id}}/" method="POST" id="feedbackForm">
+            {% csrf_token %}
+            <label for="feedback">Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="7" cols="50"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock content %}

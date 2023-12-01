@@ -1,0 +1,458 @@
+{% extends 'base.html' %}
+{% block title %}My First App{% endblock title %}
+{% block style %}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    background-color: #053B50;
+    min-height: 100vh;
+}
+
+/* SEARCH CONTAINER ---------------------------------------------------------------- */
+.search-bar {
+    width: 100%;
+    position: relative;
+    display: flex;
+    margin: 10px;
+    color: black;
+}
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: #f6f6f6;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.5s ease-in-out;
+    color: black;
+}
+.search-bar input[type="text"]:focus {
+    border-color: #428bca;
+    box-shadow: 0 0 10px #428bca;
+}
+.search-bar button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+    background: #f6f6f6;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: black;
+}
+.search-bar button:hover {
+    background: #428bca;
+}
+.search-bar button i {
+    font-size: 18px;
+    color: black;
+}
+
+/* LANGUANGE CONTAINER ---------------------------------------------------------------- */
+.language-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.language-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50em;
+    text-align: center;
+}
+.language {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: auto auto;
+    grid-row: auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+.lang-card-logo {
+    min-width: 80px;
+}
+.lang-card-logo img{
+    width: 80px;
+}
+.lang-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #23586d;
+    border-radius: 10px;
+    padding: 20px;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.lang-card:hover {
+    box-shadow: 0 6px 10px rgba(0,0,0,.1);
+    transform: scale(1.05);
+}
+.lang-card-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.lang-card-info span {
+    font-size: 14px;
+} 
+.lang-card-info {
+    display: flex;
+    flex-direction: column;
+
+}
+.lang-card-btn button {
+    margin: 20px;
+    align-items: center;
+    background-color: rgb(78, 204, 99);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: 500;
+    transition: .1s ease-in-out;
+    color: #053B50;
+    width: 100px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.lang-card-btn button:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 2px;
+    background-color: transparent;
+    border: 2px solid rgb(78, 204, 99);
+    color: white;   
+    cursor: pointer;
+}
+button a {
+    color: #053B50;
+    transition: .2s ease-in-out;
+}
+button a:hover {
+    color: white;
+}
+.lang-tags {
+    display: flex;
+    gap: 10px;
+    padding-top: 5px;
+}
+.lang-tags p {
+    background-color: transparent;
+    border: 2px solid #428bca;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 600;
+}
+/* FOOTER ---------------------------------------------------------------- */
+footer {
+    background: #a4def6;
+    margin: 0;
+}
+.bg-transition img {
+    width: 100%;
+}
+.foot-container {
+    padding: 20px;
+}
+.foot-left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.foot-left-container img {
+    width: 20%;
+}
+.foot-left-copyright h2 {
+    color: black;
+    font-size: 16px;
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique"%}">
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="language-container">
+        <div class="language-header">
+            <h2>Explore Our Online Courses Catalog</h2>
+            <p>Become fluent in your chosen programming languages by completing these tracks created by our <a href="#" style="color: rgb(78, 204, 99);">awesome team of contributors</a></p>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="search-bar" placeholder="Search your desired language" onkeyup="search()">
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="language" id="language">
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                        
+                        <img src="{% static 'assets/program-lang/html-logo.webp' alt=""%}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>HTML</h3>
+                        <span>HTML Essentials: Launch Your Web Development Odyssey</span>
+                        <div class="lang-tags">
+                            <p>Structural</p>
+                            <p>Semantic</p>
+                            <p>DOM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_html/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                        
+                        <img src="{% static 'assets/program-lang/css-logo.webp' alt="" %}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>CSS</h3>
+                        <span>Style Mastery Unleashed: Dive into CSS Today</span>
+                        <div class="lang-tags">
+                            <p>Styling</p>
+                            <p>Declarative</p>
+                            <p>Responsive</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button>
+                    <a href="/intro_css/{{akun.id}}/">Read More</a>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                       
+                        <img src="{% static 'assets/program-lang/javascript-logo.webp' alt=""%}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>Javascript</h3>
+                        <span>Unlock Interactivity: Begin Your JavaScript Journey Now</span>
+                        <div class="lang-tags">
+                            <p>Declarative</p>
+                            <p>Object-oriented</p>
+                            <p>Functional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_js/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                        
+                        <img src="{% static 'assets/program-lang/php-logo.webp'  alt=""%}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>PHP</h3>
+                        <span>PHP Powerhouse: Fueling Dynamic Web Development</span>
+                        <div class="lang-tags">
+                            <p>Imperative</p>
+                            <p>Object-oriented</p>
+                            <p>Procedural</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_php/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                       
+                        <img src="{% static 'assets/program-lang/cpp-logo.webp' alt="" %}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>C++</h3>
+                        <span>Crafting the Future: Master C++ Programming Today</span>
+                        <div class="lang-tags">
+                            <p>Static</p>
+                            <p>Object-oriented</p>
+                            <p>Strong</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_cpp/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                        <img src="{% static 'assets/program-lang/python-logo.webp' alt=""%}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>Python</h3>
+                        <span>Pythonic Prowess: Elevate Your Coding with Python</span>
+                        <div class="lang-tags">
+                            <p>Imperative</p>
+                            <p>Object-oriented</p>
+                            <p>Functional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_python/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                        
+                        <img src="{% static 'assets/program-lang/ruby-logo.webp' alt="" %}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>Ruby</h3>
+                        <span>Ruby Revolution: Transform Ideas into Code with Ruby</span>
+                        <div class="lang-tags">
+                            <p>Functional</p>
+                            <p>Object-oriented</p>
+                            <p>Linux</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_ruby/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+
+            <div class="lang-card">
+                <div class="lang-card-left">
+                    <div class="lang-card-logo">
+                    
+                        <img src="{% static 'assets/program-lang/java-logo.webp' alt=""%}">
+                    </div>
+                    <div class="lang-card-info">
+                        <h3>Java</h3>
+                        <span>Java Juggernaut: Ignite Your Programming Potential with Java</span>
+                        <div class="lang-tags">
+                            <p>Imperative</p>
+                            <p>Compiled</p>
+                            <p>Functional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-card-btn">
+                    <button><a href="/intro_java/{{akun.id}}/">Read More</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <section class="bg-transition">
+        <img src="{% static 'assets/additional-svgs/bg-footer.svg' alt=""%}">
+    </section>
+    <div class="foot-container">
+        <section class="foot-left-container">
+            <img src="{% static 'assets/logo/main-logo-black.webp' alt=""%}">
+            <div class="foot-left-copyright">
+                <h2>Copyright &copy; 2023</h2>
+            </div>
+        </section>
+
+        <section class="foot-right-container">
+            
+        </section>
+    </div>
+</footer>
+<script src="{% static 'js/learn.js' %}"></script>
+{% endblock content %}

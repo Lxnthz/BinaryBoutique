@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+{% block style %}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* HEADER ---------------------------------------------------------------------------------*/
+header {
+    background-color: #a4def6;
+}
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+.profile-header h1, .track-record p {
+    color: black;
+}
+.image-header {
+    background-color: #053B50;
+}
+.image-header img {
+    width: 100%;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    background-color: #053B50;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #053B50;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+}    
+.profile-segment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 10px;
+}
+.segment-header {
+    display: flex;
+    justify-content: space-between;
+}
+.segment-header button {
+    padding: 5px;
+    width: 50px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .5s ease-in-out;
+}
+.segment-header button:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    color: white;
+    cursor: pointer;
+}
+.display-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    border: none;
+    background: #095979;
+    border-bottom: 1px solid;
+    font-size: 14px;
+    padding: 5px;
+    padding-bottom: 5px;
+}
+#passwordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input[type="submit"] {
+    background-color: rgb(78, 204, 99);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: .5s ease-in-out;
+}
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    color: white;
+    cursor: pointer;
+}
+/* DELETE CONTAINER --------------------------------------------------- */
+.delete-container {
+    display: flex;
+    flex-direction: column;
+}
+.delete-container hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #5a1111, white, #5a1111) .5;
+}
+.delete-segment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    gap: 10px;
+    background-color: #5a1111;
+}
+.delete-disclaimer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.disclaimer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: justify;
+}
+#deleteAccountForm .btn-submit input {
+    background-color: yellow;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: .5s ease-in-out;
+}
+#deleteAccountForm .btn-submit input:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    border: 1px solid yellow;
+    color: white;
+    cursor: pointer;
+}
+#deleteAccountForm input {
+    background-color: transparent;
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}">
+                <img src="{% static 'assets/logo/small-logo-white.webp'%}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="container">
+        <div class="profile-container">
+            <h1>Profile Settings</h1>
+            <div class="profile-segment">
+                <div class="segment-header">
+                    <h3>Account Information</h3>   
+                    <button onclick="location.href='/account-settings/{{akun.id}}/'" >Edit</button> 
+                </div>
+                <hr>
+                <div class="display-information">
+                    <label for="fname">Full Name:</label>
+                    <input type="text" id="fname" name="fname" value="{{akun.fullname}}">
+    
+                    <label for="uname">Username:</label>
+                    <input type="text" id="uname" name="uname" value="{{akun.username}}">
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{akun.email}}">    
+
+                </div>
+            </div>    
+        </div>
+
+        <div class="profile-container">
+            <div class="profile-segment">
+                <div class="segment-header">
+                    <h3>Password {{pesan}}</h3>   
+                </div>
+                <hr>
+                <form action ="/change_password/{{akun.id}}/" method="POST" id="passwordForm">
+                    {% csrf_token %}
+                    <label for="current-password">Current Password:</label>
+                    <input type="password" id="current-password" name="current-password" required>
+            
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" name="new-password" required>
+                    <span id="passwordError" class="error-message"></span>
+            
+                    <label for="confirm-password">Confirm New Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <span id="confirmPasswordError" class="error-message"></span>
+            
+                    <div class="btn-submit">
+                        <input type="submit" value="Change Password">
+                    </div>
+                </form>
+            </div>    
+        </div>
+
+        <div class="delete-container">
+            <div class="delete-segment">
+                <div class="delete-header">
+                    <h3>DELETE ACCOUNT {{delete_pesan}}</h3>    
+                </div>
+                <hr>
+                <div class="delete-disclaimer">
+                    <p>Before proceeding, please read and understand the following disclaimer:</p>
+                    <br>
+                    <div class="disclaimer">
+                        <p>
+                            <strong>Disclaimer: <br></strong> Deleting your account is an irreversible action. 
+                            By confirming the deletion of your account, all your data, including profile information, 
+                            settings, and associated content, will be permanently removed from our system.
+                        </p>
+                        <br>
+                        <p>
+                            Please ensure that you have backed up any important data and consider the implications 
+                            of losing access to your account before proceeding. Once the account is deleted, it 
+                            cannot be recovered, and you will need to create a new account if you wish to use our services again.
+                        </p>
+                    </div>
+                    <br>
+                    <form id="deleteAccountForm" method ="POST" action="/delete_account/{{akun.id}}/">
+                        {% csrf_token%}
+                        <label for="confirmation">Type 'DELETE' to confirm:</label>
+                        <input type="text" id="confirmation" name="confirmation" required>
+                
+                        <div class="btn-submit">
+                            <input type="submit" value="Delete Account">
+                        </div>
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </section>
+</main>
+
+<script src="{% static 'js/user-setting.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+{% block style%}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    /* position: relative; */
+    left: 400px;
+    min-height: 100vh;
+    background-color: #053B50;
+    display: flex;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* SIDE BAR ---------------------------------------------------------------------------------*/
+.toc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toc a {
+    transition: .3s ease-in-out;
+}
+.toc a:hover {
+    
+}
+.sidebar {
+    background-color: #0b6b91;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    padding: 10px;
+}
+.scrollbox-items ul li button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    transition: .3s ease-in-out;
+    text-align: left;
+}
+.scrollbox-items ul li button:hover {
+    background-color: rgba(245, 245, 245, 0.596);
+
+}
+/* CONTENT ---------------------------------------------------------------------------------*/
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 30px;
+}
+.content-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.track-menu {
+    display: flex;
+    gap: 20px;
+}
+.track-menu img {
+    width: 50%;
+}
+/* SUB CONTENT -----------------------------------------------------------------------*/
+.sub-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    gap: 5px;
+}
+.sub-content span {
+    font-weight: 700;
+}
+.code-ex {
+    color: green;
+    font-weight: bold;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* BUTTON -----------------------------------------------------------------------*/
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-container button {
+    padding: 10px;
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .3s ease-in-out;
+}
+.btn-container button:hover {
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    cursor: pointer;
+}
+/* CODE SNIPPETS -----------------------------------------------------------------------*/
+pre {
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    border: 1px solid;
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}/">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique" %}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <aside>
+        <section class="sidebar">
+            <header>
+                <div class="toc">
+                    <h2>TABLE OF CONTENTS</h2>
+                    <a href="/homepage/homepage.html"><i class='bx bx-home-alt'></i></a>
+                </div>
+                
+                <hr style="border: 1px solid white;">
+            </header>
+            <div class="scroll-box">
+                <div class="scrollbox-items">
+                    <div class="topic-header">
+                        <span >PHP Intro</span>
+                    </div>
+                    <ul>
+                        <li><button style="color: greenyellow;" onclick="location.href='#'">PHP Introduction</button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </aside>
+    <section class="content">
+        <div class="content-title">
+            <h1>Get to know PHP!</h1>
+            <hr>    
+        </div>
+
+        <div class="track-menu">
+            <img src="{% static 'assets/courses-header/php-header.png'  alt="" %}">
+            <div class="track-menu-add">
+                <h2>Add PHP to your library</h2>
+                <div class="btn-container">
+                    {% if certificate == "" %}
+                    <a href="/add_course/{{akun.id}}/4"><button>Add</button></a>  
+                    {% else %}
+                    <p> {{certificate}} </p>
+                    {% endif %}     
+                </div>
+            </div>
+        </div>
+
+        <p>PHP code is executed on the server.</p>
+
+        <div class="sub-content">
+            <h2>What You Should Already Know</h2>
+            <p>Before you continue you should have a basic understanding of the following:</p>
+            <ol>
+                <li>- <span><a href="/intro_html/{{akun.id}}/">HTML</a></span></li>
+                <li>- <span><a href="/intro_css/{{akun.id}}/">CSS</a></span></li>
+                <li>- <span><a href="/intro_js/{{akun.id}}/">JavaScript</a></span></li>
+            </ol>
+        </div>
+
+        <div class="sub-content">
+            <h2>What is PHP?</h2>
+            <ol>
+                <li>- PHP is an acronym for "PHP: Hypertext Preprocessor"</li>
+                <li>- PHP is widely-used, open source scripting language.</li>
+                <li>- PHP scripts are executed on the server</li>
+            </ol>
+        </div>
+
+        <div class="sub-content">
+            <h2>What is a PHP File?</h2>
+            <ol>
+                <li>- PHP files can contain text, HTML, CSS, JavaScript, and PHP code</li>
+                <li>- PHP code is executed on the server, and the result is returned to the browser as plain HTML</li>
+                <li>- PHP files have extension "<code class="code-ex">.php</code>"</li>
+            </ol>
+        </div>
+
+        <div class="sub-content">
+            <h2>What Can PHP Do?</h2>
+            <ol>
+                <li>- PHP can generate dynamic page content</li>
+                <li>- PHP can create, open, read, write, delete, and close files on the server</li>
+                <li>- PHP can collect form data</li>
+                <li>- PHP can send and receive cookies</li>
+                <li>- PHP can add, delete, modify data in your database</li>
+                <li>- PHP can be used to control user-access</li>
+                <li>- PHP can encrypt data</li>
+            </ol>
+            <br>
+            <p>With PHP you are not limited to output HTML. You can output images or PDF files. You can also output any text, such as XHTML and XML.</p>
+        </div>
+
+        <div class="sub-content">
+            <h2>Why PHP?</h2>
+            <ol>
+                <li>- PHP runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)</li>
+                <li>- PHP is compatible with almost all servers used today (Apache, IIS, etc.)</li>
+                <li>- PHP supports a wide range of databases</li>
+                <li>- PHP is free. Download it from the official PHP resource: <code class="code-ex"><a href="https://www.php.net">Official PHP Website</a></code></li>
+            </ol>
+        </div>
+
+        <div class="sub-content">
+            <h2>What's new in PHP 7</h2>
+            <ol>
+                <li>- PHP 7 is much faster than the previous popular stable release (PHP 5.6)</li>
+                <li>- PHP 7 has improved Error Handling</li>
+                <li>- PHP 7 supports stricter Type Declarations for function arguments</li>
+                <li>- PHP 7 supports new operators (like the spaceship operator: <code class="code-ex"><=></code>)</li>
+            </ol>
+        </div>
+
+        <div class="btn-container">
+            <button onclick="location.href='/backtoHome/{{akun.id}}/'">Finish</button>
+        </div>
+    </section>
+{% endblock content %}

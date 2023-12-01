@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% block style%}
+/* CSS RESET ---------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+/* MAIN ---------------------------------------------------------------------------------*/
+main {
+    /* position: relative; */
+    left: 400px;
+    min-height: 100vh;
+    background-color: #053B50;
+    display: flex;
+}
+/* NAVIGATION BAR ---------------------------------------------------------------------------------*/
+nav {
+    background-color: #053B50;
+    display: flex;
+    flex-direction: row;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul li {
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+nav ul li:hover {
+    transform: scale(1.2);
+    
+}
+nav ul li a {
+    color: white;
+}
+nav img {
+    width: 120px;
+    transform: translateY(4px);
+}
+/* SIDE BAR ---------------------------------------------------------------------------------*/
+.toc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toc a {
+    transition: .3s ease-in-out;
+}
+.toc a:hover {
+    
+}
+.sidebar {
+    background-color: #0b6b91;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    padding: 10px;
+}
+.scrollbox-items ul li button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    transition: .3s ease-in-out;
+    text-align: left;
+}
+.scrollbox-items ul li button:hover {
+    background-color: rgba(245, 245, 245, 0.596);
+
+}
+/* CONTENT ---------------------------------------------------------------------------------*/
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 30px;
+}
+.content-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.track-menu {
+    display: flex;
+    gap: 20px;
+}
+.track-menu img {
+    width: 50%;
+}
+/* SUB CONTENT -----------------------------------------------------------------------*/
+.sub-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 10px;
+    gap: 5px;
+}
+.sub-content span {
+    font-weight: 700;
+}
+.code-ex {
+    color: green;
+    font-weight: bold;
+}
+/* HR -----------------------------------------------------------------------*/
+hr {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #053B50, white, #053B50) .5;
+}
+/* BUTTON -----------------------------------------------------------------------*/
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-container button {
+    padding: 10px;
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgb(78, 204, 99);
+    transition: .3s ease-in-out;
+}
+.btn-container button:hover {
+    background-color: transparent;
+    border: 1px solid rgb(78, 204, 99);
+    cursor: pointer;
+}
+/* CODE SNIPPETS -----------------------------------------------------------------------*/
+pre {
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    border: 1px solid;
+}
+{% endblock style %}
+{% block content %}
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/backtoHome/{{akun.id}}/">
+                <img src="{% static 'assets/logo/small-logo-white.webp' alt="Boutique" %}">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/learn-page/{{akun.id}}/">Learn</a></li>
+                <li><a href="/go_to_user/{{akun.id}}/">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <aside>
+        <section class="sidebar">
+            <header>
+                <div class="toc">
+                    <h2>TABLE OF CONTENTS</h2>
+                    <a href="/backtoHome/{{akun.id}}"><i class='bx bx-home-alt'></i></a>
+                </div>
+                
+                <hr style="border: 1px solid white;">
+            </header>
+            <div class="scroll-box">
+                <div class="scrollbox-items">
+                    <div class="topic-header">
+                        <span >C++ Intro</span>
+                    </div>
+                    <ul>
+                        <li><button style="color: greenyellow;" onclick="location.href='#'">Python Introduction</button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </aside>
+    <section class="content">
+        <div class="content-title">
+            <h1>Get to know Java!</h1>
+            <hr>    
+        </div>
+
+        <div class="track-menu">
+            <img src="{% static 'assets/courses-header/java-header.png' alt=""> %}" >
+            <div class="track-menu-add">
+                <h2>Add Java to your library</h2>
+                <div class="btn-container">
+                    {% if certificate == "" %}
+                    <a href="/add_course/{{akun.id}}/8"><button>Add</button></a>  
+                    {% else %}
+                    <p> {{certificate}} </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-content">
+            <h2>What is Java?</h2>
+            <p>Java is a popular programming language, created in 1995.</p>
+            <p>It is owned by Oracle, and more than <span>3 billion</span> devices run Java.</p>
+            <p>It is used for:</p>
+            <ol>
+                <li>- Mobile applications (specially Android apps)</li>
+                <li>- Desktop applications</li>
+                <li>- Web servers and application servers</li>
+                <li>- Games</li>
+                <li>- Web applications</li>
+                <li>- Database connection</li>
+                <li>- And much, much more!</li>
+            </ol>
+        </div>
+
+        <div class="sub-content">
+            <h2>Why Use Java?</h2>
+            <ol>
+                <li>- Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)</li>
+                <li>- It is one of the most popular programming language in the world</li>
+                <li>- It has a large demand in the current job market</li>
+                <li>- It is easy to learn and simple to use</li>
+                <li>- It is open-source and free</li>
+                <li>- It is secure, fast and powerful</li>
+                <li>- It has a huge community support (tens of millions of developers)</li>
+                <li>- Java is an object oriented language which gives a clear structure to programs and allows code to be reused, lowering development costs</li>
+                <li>- As Java is close to <span><a href="/intro_cpp/{{user.id}}/">C++</a></span> and <span>C</span>, it makes it easy for programmers to switch to Java or vice versa</li>
+            </ol>
+        </div>
+
+        <div class="btn-container">
+            <button onclick="location.href='/backtoHome/{{akun.id}}/'">Finish</button>
+        </div>
+    </section>
+{% endblock content %}
